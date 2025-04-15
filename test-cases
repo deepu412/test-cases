@@ -1,10 +1,18 @@
-test-cases
-https://www.conqt.com/github.com/deepu412/testcase.git 
+#check page load
+describe(‘homepage Load Test’ , ()   => {
+ it(‘should load homepage within 3 seconds’ , ()  ==> {
+const start  = Date.now();
+cy.visit(‘https://www.conqt.com’ , {
+onLoad:  (win)  => {
+const duration  =  Date.now()  - start;
+expect(duration). To.be.lessThan(3000);
+}});
+Cy document().its(‘readyState’).should(‘eq’ , ‘complete’ );
+Cy.window().then((win)  =>{
+Const logs = win.console.log;
+Expect(logs).to.not.include(error’); });
+});
 
-https://www.conqt.com/view-all-product  
-
-https://www.conqt.com/AWS-Cloud-Storage  
-
-https://www.conqt.com/faqs  
-
-https://ww.conqt.com/conqt-university  
+#check product list load: 
+Describe(‘all products page’ , () ==> {
+It(‘should load all products page and validate against API’ () ==>
